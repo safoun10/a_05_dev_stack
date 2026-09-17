@@ -1,11 +1,12 @@
 import { ToastContainer } from "react-toastify"
+import Nav from "./components/Nav"
 
 
 function App() {
 
     return (
         <div>
-            <div>test</div>
+            <Nav></Nav>
             <ToastContainer />
         </div>
     )
