@@ -17,8 +17,8 @@ const TechStack = ({ techData }: TechProps) => {
                 </div>
                 <div className="text-gray-500">Pick one Technology per category to build your ideal stack.</div>
             </div>
-            <div className="grid grid-cols-4 justify-between items">
-                <div className="col-span-3 grid grid-cols-3">
+            <div className="grid grid-cols-4 gap-10 justify-between items">
+                <div className="col-span-3 grid grid-cols-3 gap-4">
                     {
                         stack.map(eachTech => {
                             return (
@@ -27,7 +27,7 @@ const TechStack = ({ techData }: TechProps) => {
                         })
                     }
                 </div>
-                <div className="col-span-1">1</div>
+                <div className="col-span-1 sticky top-25 h-fit">1</div>
             </div>
         </div>
     );

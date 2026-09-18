@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 const Nav = () => {
     return (
-        <div className="sticky top-0 z-100 border border-transparent border-b-gray-300 px-5 glass backdrop-blur-md">
+        <div className="sticky top-0 z-100 border border-transparent border-b-gray-300 px-5 glass backdrop-blur-lg">
             <div className="max-w-7xl mx-auto flex justify-between items-center py-6 text-gray-500 font-semibold">
                 <div className="xl:hidden">
                     <a href=""><GiHamburgerMenu /></a>
