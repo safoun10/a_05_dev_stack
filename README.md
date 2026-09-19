@@ -7,8 +7,8 @@ A modern web application built to help developers browse, discover, and curate t
 
 ## Deployment Links
 
-* **Live Site:** [DevStack](https://github.com/safoun10/a_05_dev_stack)
-* **GitHub Repository:** [DevStack](https://dev-stack-safoun.netlify.app/)
+* **GitHub Repository:** [DevStack](https://github.com/safoun10/a_05_dev_stack)
+* **Live Site:** [DevStack](https://dev-stack-safoun.netlify.app/)
 
 ---
 
