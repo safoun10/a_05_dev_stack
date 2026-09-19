@@ -16,6 +16,11 @@ const YourStack = ({ selectedTech, setSelectedTech }: YourStackProps) => {
         toast.success(`${tech.name} deleted!`);
     }
 
+    const handleAllDelete = () => {
+        setSelectedTech([]);
+        toast.success("All Deleted!");
+    }
+
     return (
         <div className="border border-base-200 rounded-2xl shadow-sm hover:shadow-md transition-all p-6">
             <div className="mb-5">
@@ -36,7 +41,7 @@ const YourStack = ({ selectedTech, setSelectedTech }: YourStackProps) => {
                                             <img className="w-8" src={each.icon} />
                                             <div>
                                                 <div className="font-semibold">{each.name}</div>
-                                                <div className="font-extralight -mt-1.5">{each.category}</div>
+                                                <div className="font-extralight text-xs -mt-1">{each.category}</div>
                                             </div>
                                         </div>
                                         <div className=" cursor-pointer border border-transparent rounded-2xl hover:border-gray-400 p-3" onClick={() => handleDelete(each)}>
@@ -52,6 +57,9 @@ const YourStack = ({ selectedTech, setSelectedTech }: YourStackProps) => {
                     >
                         Your stack is empty.
                     </div>
+            }
+            {
+                selectedTech.length > 0 ? <div onClick={() => handleAllDelete()} className="mt-10 btn btn-outline border-red-600 text-red-600 hover:bg-red-600 hover:text-white w-full">Remove All</div> : <div></div>
             }
         </div>
     );
