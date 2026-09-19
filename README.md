@@ -15,7 +15,7 @@ A modern web application built to help developers browse, discover, and curate t
 ## Tech Stack
 
 * **Frontend Framework:** React.js
-* **Language:** JavaScript (ES6+)
+* **Language:** Typescript
 * **Build Tool:** Vite
 * **Styling & UI:** Tailwind CSS, DaisyUI
 * **Notifications:** React-Toastify
