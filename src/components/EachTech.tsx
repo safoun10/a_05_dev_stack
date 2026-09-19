@@ -1,14 +1,28 @@
 import { FaStar } from "react-icons/fa";
 import type { Tech } from "../types/TechTypes";
+import { type Dispatch, type SetStateAction } from "react";
+import { toast } from "react-toastify";
 
 interface EachTechProps {
     eachTech: Tech;
+    selectedTech: Tech[];
+    setSelectedTech: Dispatch<SetStateAction<Tech[]>>;
 };
 
-const EachTech = ({ eachTech }: EachTechProps) => {
+const EachTech = ({ eachTech, selectedTech, setSelectedTech }: EachTechProps) => {
+    const isAlreadySelected = !!selectedTech.find(tech => tech.id === eachTech.id);
+    const handleSelect = (obj: Tech) => {
+        if (!isAlreadySelected) {
+            setSelectedTech(prev => [...prev, obj]);
+            toast(`${eachTech.name} selected !`);
+        } else {
+            toast.warn(`${eachTech.name} was already selected`);
+        }
+    };
+
     return (
 
-        <div className="border border-base-200 rounded-xl shadow-sm hover:shadow-md transition-all px-8 py-6 flex flex-col justify-between">
+        <div className={`${isAlreadySelected ? "border-gray-950" : ""} border border-base-200 rounded-xl shadow-sm hover:shadow-md transition-all px-8 py-6 flex flex-col justify-between`}>
             <div>
                 <div className="flex items-start justify-between gap-4">
                     <img src={eachTech.icon} alt={eachTech.name} className="w-10 h-10 object-contain" />
@@ -30,8 +44,11 @@ const EachTech = ({ eachTech }: EachTechProps) => {
                     <span className="font-semibold text-warning flex justify-center items-center gap-1"><FaStar /> {eachTech.rating}</span>
                 </div>
 
-                <button className="btn btn-neutral btn-block mt-4 rounded-xl text-sm">
-                    Add to Stack
+                <button onClick={() => handleSelect(eachTech)}
+                    className={`${isAlreadySelected ? "bg-gray-400 text-gray-900 cursor-not-allowed" : ""} btn btn-neutral btn-block mt-4 rounded-xl text-sm`}>
+                    {
+                        isAlreadySelected ? "✓ Added to Stack" : "Add to Stack"
+                    }
                 </button>
             </div>
         </div>

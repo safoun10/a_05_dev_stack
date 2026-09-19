@@ -6,6 +6,8 @@ import { Suspense, useState } from "react";
 import TechStack from "./components/TechStack";
 import Footer from "./components/Footer";
 
+import loading from "./assets/loading.gif";
+
 const techFetch = async (): Promise<Tech[]> => {
     const res = await fetch("/data.json");
     const data = await res.json();
@@ -20,11 +22,15 @@ function App() {
         <div>
             <Nav></Nav>
             <Hero></Hero>
-            <Suspense fallback={<p>loading...</p>}>
+            <Suspense fallback={
+                <div className="flex justify-center items-center py-10">
+                    <img className="w-10" src={loading}></img>
+                </div>
+            }>
                 <TechStack techData={techData}></TechStack>
             </Suspense>
             <Footer></Footer>
-            <ToastContainer />
+            <ToastContainer position="top-center"/>
         </div>
     )
 }

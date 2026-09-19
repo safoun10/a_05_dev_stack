@@ -1,4 +1,4 @@
-import { use } from "react";
+import { use, useState } from "react";
 import type { Tech } from "../types/TechTypes";
 import EachTech from "./EachTech";
 import YourStack from "./YourStack";
@@ -9,6 +9,8 @@ interface TechProps {
 
 const TechStack = ({ techData }: TechProps) => {
     const stack = use(techData);
+
+    const [selectedTech, setSelectedTech] = useState<Tech[]>([]);
 
     return (
         <div className="my-16 max-w-7xl mx-auto px-4">
@@ -23,13 +25,13 @@ const TechStack = ({ techData }: TechProps) => {
                     {
                         stack.map(eachTech => {
                             return (
-                                <EachTech key={eachTech.id} eachTech={eachTech}></EachTech>
+                                <EachTech selectedTech={selectedTech} setSelectedTech={setSelectedTech} key={eachTech.id} eachTech={eachTech}></EachTech>
                             );
                         })
                     }
                 </div>
                 <div className="col-span-1 sticky top-24 h-fit">
-                    <YourStack></YourStack>
+                    <YourStack selectedTech={selectedTech} setSelectedTech={setSelectedTech}></YourStack>
                 </div>
             </div>
         </div>
